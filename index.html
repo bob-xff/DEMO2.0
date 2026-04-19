@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>林晓晨 - 个人主页</title>
+    <title>锋锋の小站</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,18 +13,18 @@
         }
 
         :root {
-            --bg-color: #FAFAFA;
+            --bg-color: #FFF5F7;
             --card-bg: #FFFFFF;
-            --text-primary: #1E1E2F;
-            --text-secondary: #6C6C7A;
-            --primary-color: #3B82F6;
-            --secondary-color: #10B981;
-            --accent-color: #F59E0B;
-            --purple-color: #8B5CF6;
-            --border-color: #E4E4E7;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.08);
-            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.06);
+            --text-primary: #2D2D3A;
+            --text-secondary: #6B6B7A;
+            --primary-color: #FF6B9D;
+            --secondary-color: #FFB3C6;
+            --accent-color: #FF8FB1;
+            --purple-color: #C77DFF;
+            --border-color: #FFE4E9;
+            --shadow-light: 0 4px 12px rgba(255, 107, 157, 0.08), 0 1px 2px rgba(255, 107, 157, 0.06);
+            --shadow-hover: 0 6px 16px rgba(255, 107, 157, 0.12), 0 2px 4px rgba(255, 107, 157, 0.08);
+            --shadow-card: 0 8px 24px rgba(255, 107, 157, 0.1), 0 2px 8px rgba(255, 107, 157, 0.08);
             --radius-large: 16px;
             --radius-medium: 12px;
             --radius-small: 8px;
@@ -32,7 +32,7 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Nunito', 'Quicksand', 'M PLUS Rounded 1c', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.6;
@@ -46,11 +46,11 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 400px;
-            background: linear-gradient(135deg, #E8F4FD 0%, #F0F9FF 50%, #F5F3FF 100%);
+            height: 350px;
+            background: linear-gradient(180deg, #FFE4E9 0%, #FFF5F7 100%);
             z-index: -1;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
         }
 
         .container {
@@ -88,7 +88,9 @@
         .nav-logo {
             font-weight: 700;
             font-size: 18px;
-            color: var(--text-primary);
+            color: var(--primary-color);
+            font-family: 'M PLUS Rounded 1c', 'Nunito', system-ui, sans-serif;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -106,6 +108,11 @@
 
         .nav-link:hover {
             color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
@@ -127,52 +134,7 @@
             }
         }
 
-        .avatar-container {
-            margin-bottom: 24px;
-            position: relative;
-            display: inline-block;
-        }
 
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: var(--radius-circle);
-            background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            font-weight: 700;
-            box-shadow: var(--shadow-card);
-            transition: transform 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.05);
-        }
-
-        .avatar-ring {
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            border: 3px solid rgba(59, 130, 246, 0.2);
-            border-radius: var(--radius-circle);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.7;
-            }
-        }
 
         .name {
             font-size: 48px;
@@ -180,6 +142,7 @@
             color: var(--text-primary);
             margin-bottom: 8px;
             letter-spacing: -0.5px;
+            font-family: 'M PLUS Rounded 1c', 'Nunito', system-ui, sans-serif;
         }
 
         .tagline {
@@ -189,65 +152,7 @@
             margin-bottom: 32px;
         }
 
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
 
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary-color);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        @media (max-width: 768px) {
-            .stats-container {
-                gap: 32px;
-            }
-
-            .stat-number {
-                font-size: 28px;
-            }
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            transition: color 0.2s ease;
-        }
-
-        .social-link:hover {
-            color: var(--primary-color);
-        }
-
-        .social-link i {
-            font-size: 16px;
-        }
 
         section {
             margin-bottom: 64px;
@@ -272,7 +177,7 @@
             width: 40px;
             height: 40px;
             border-radius: var(--radius-medium);
-            background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+            background: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -362,21 +267,7 @@
             overflow: hidden;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--purple-color));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
 
         .project-card:hover {
             transform: translateY(-4px);
@@ -452,21 +343,7 @@
             overflow: hidden;
         }
 
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary-color);
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
 
-        .skill-item:hover::before {
-            opacity: 1;
-        }
 
         .skill-item:hover {
             background-color: var(--primary-color);
@@ -510,20 +387,7 @@
             overflow: hidden;
         }
 
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
 
-        .contact-btn:hover::before {
-            left: 100%;
-        }
 
         .contact-btn:hover {
             border-color: var(--primary-color);
@@ -532,14 +396,334 @@
             box-shadow: var(--shadow-light);
         }
 
-        .contact-btn.primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
-            color: white;
-            border-color: transparent;
+
+
+        .time-section {
+            margin-bottom: 32px;
         }
 
-        .contact-btn.primary:hover {
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+        .time-card {
+            text-align: center;
+            padding: 40px 32px;
+        }
+
+        .time-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .time-main {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.2);
+        }
+
+        .date-display {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .time-main {
+                font-size: 36px;
+            }
+
+            .date-display {
+                font-size: 14px;
+            }
+        }
+
+        .carousel-section {
+            margin-bottom: 48px;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-light);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: none;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .slide-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FF6B9D 0%, #FFB3C6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .slide-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-slide:nth-child(2) .slide-placeholder {
+            background: linear-gradient(135deg, #FF8FB1 0%, #FFB3C6 100%);
+        }
+
+        .carousel-slide:nth-child(3) .slide-placeholder {
+            background: linear-gradient(135deg, #C77DFF 0%, #E0AAFF 100%);
+        }
+
+        .carousel-slide:nth-child(4) .slide-placeholder {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C77DFF 100%);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .prev-btn {
+            left: 16px;
+        }
+
+        .next-btn {
+            right: 16px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .carousel-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 5px;
+        }
+
+        .quote-section {
+            margin-bottom: 32px;
+        }
+
+        .quote-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-large);
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-icon {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .quote-btn {
+            margin-top: 16px;
+            padding: 8px 24px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: var(--radius-medium);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .quote-text {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slide {
+                height: 250px;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .prev-btn {
+                left: 8px;
+            }
+
+            .next-btn {
+                right: 8px;
+            }
+        }
+
+        .updates-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .update-item {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-large);
+            padding: 24px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 20px;
+        }
+
+        .update-item:hover {
+            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+        }
+
+        .update-date {
+            flex-shrink: 0;
+            width: 100px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding-top: 4px;
+        }
+
+        .update-content {
+            flex: 1;
+        }
+
+        .update-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .update-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .update-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .update-date {
+                width: auto;
+            }
         }
 
         footer {
@@ -558,7 +742,7 @@
             width: 48px;
             height: 48px;
             border-radius: var(--radius-medium);
-            background: linear-gradient(135deg, var(--primary-color), var(--purple-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
             cursor: pointer;
@@ -580,7 +764,7 @@
 
         .back-to-top:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+            box-shadow: var(--shadow-card);
         }
 
         @media (max-width: 768px) {
@@ -617,193 +801,107 @@
     </style>
 </head>
 <body>
-        <nav class="nav-bar">
-            <div class="nav-content">
-                <div class="nav-logo">林晓晨</div>
-                <div class="nav-links">
-                    <a href="#about" class="nav-link">关于</a>
-                    <a href="#projects" class="nav-link">项目</a>
-                    <a href="#skills" class="nav-link">技能</a>
-                    <a href="#contact" class="nav-link">联系</a>
-                </div>
+     <nav class="nav-bar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">锋锋の小站</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">主页</a>
+                <a href="about.html" class="nav-link">关于</a>
+                <a href="blog.html" class="nav-link">动态</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
         <div class="container">
         <header>
-            <div class="avatar-container">
-                <div class="avatar-ring"></div>
-                <div class="avatar">林</div>
-            </div>
-            <h1 class="name">林晓晨</h1>
-            <p class="tagline">构建简洁有效的数字产品</p>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">4+</div>
-                    <div class="stat-label">年经验</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">项目</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">开源</div>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-link">
-                    <i class="fab fa-github"></i>
-                    GitHub
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                    Twitter
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                    Email
-                </a>
-            </div>
+            <h1 class="name">锋锋の小站</h1>
+            <p class="tagline">欢迎来到我的个人空间</p>
         </header>
+
+        <section class="time-section">
+            <div class="card time-card">
+                <div class="time-display">
+                    <div class="time-main" id="currentTime">00:00:00</div>
+                    <div class="date-display" id="currentDate">2024年1月1日 星期一</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <div class="slide-placeholder"><img id="carouselImg1" src="1.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-placeholder"><img id="carouselImg2" src="2.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-placeholder"><img id="carouselImg3" src="3.jpg" alt=""></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-placeholder"><img id="carouselImg4" src="4.jpg" alt=""></div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="quote-card">
+                <div class="quote-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="quote-text" id="quoteText">每一个不曾起舞的日子，都是对生命的辜负</div>
+                    <div class="quote-author" id="quoteAuthor"></div>
+                    <button class="quote-btn" id="newQuoteBtn">
+                        <i class="fas fa-sync-alt"></i> 换一句
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        
 
         <section id="about">
             <div class="section-header">
                 <div class="section-icon">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-heart"></i>
                 </div>
                 <h2 class="section-title">关于</h2>
                 <div class="section-line"></div>
             </div>
             <div class="card">
                 <div class="about-text">
-                    <p>过去四年，我专注于<span class="highlight">前端开发</span>与<span class="highlight">交互设计</span>。相信好的界面不需要喧哗，清晰与克制就是最好的体验。</p>
-                    <p>我喜欢探索新技术，但更关注如何用最简单的方式解决实际问题。工作之余，我会阅读设计书籍、参与开源项目，或者在咖啡店里写代码。</p>
+                    <p id="aboutText1">这里是锋锋的小站，一个记录生活、分享想法的个人空间。</p>
+                    <p id="aboutText2">喜欢动漫、游戏、编程和一切美好的事物。希望这里能给你带来一些温暖和快乐。</p>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
+        <section id="updates">
             <div class="section-header">
                 <div class="section-icon">
-                    <i class="fas fa-code"></i>
+                    <i class="fas fa-bolt"></i>
                 </div>
-                <h2 class="section-title">项目</h2>
+                <h2 class="section-title">动态</h2>
                 <div class="section-line"></div>
             </div>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <h3 class="project-name">极简天气应用</h3>
-                    <p class="project-desc">一个简洁的天气查询应用，支持多城市切换和实时更新。</p>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">OpenWeather API</span>
-                    </div>
-                    <a href="#" class="project-link">
-                        访问站点
-                        <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
-                    </a>
-                </article>
-
-                <article class="project-card">
-                    <h3 class="project-name">个人博客系统</h3>
-                    <p class="project-desc">基于 MDX 的静态博客生成器，支持代码高亮和主题切换。</p>
-                    <div class="project-tags">
-                        <span class="tag">Next.js</span>
-                        <span class="tag">MDX</span>
-                    </div>
-                    <a href="#" class="project-link">
-                        了解更多
-                        <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
-                    </a>
-                </article>
-
-                <article class="project-card">
-                    <h3 class="project-name">任务管理工具</h3>
-                    <p class="project-desc">轻量级任务管理应用，支持标签分类和拖拽排序。</p>
-                    <div class="project-tags">
-                        <span class="tag">Vue 3</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                    <a href="#" class="project-link">
-                        访问站点
-                        <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
-                    </a>
-                </article>
-
-                <article class="project-card">
-                    <h3 class="project-name">设计系统文档</h3>
-                    <p class="project-desc">企业级设计系统文档站，包含组件库和设计规范。</p>
-                    <div class="project-tags">
-                        <span class="tag">Figma</span>
-                        <span class="tag">Storybook</span>
-                    </div>
-                    <a href="#" class="project-link">
-                        了解更多
-                        <i class="fas fa-arrow-right" style="font-size: 12px;"></i>
-                    </a>
-                </article>
+            <div class="updates-list" id="updatesList">
             </div>
         </section>
 
-        <section id="skills">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h2 class="section-title">技能</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="skills-container">
-                <span class="skill-item primary">JavaScript</span>
-                <span class="skill-item primary">TypeScript</span>
-                <span class="skill-item primary">React</span>
-                <span class="skill-item secondary">Vue</span>
-                <span class="skill-item primary">Next.js</span>
-                <span class="skill-item secondary">Node.js</span>
-                <span class="skill-item accent">Figma</span>
-                <span class="skill-item primary">Tailwind CSS</span>
-                <span class="skill-item secondary">Git</span>
-                <span class="skill-item primary">HTML/CSS</span>
-                <span class="skill-item purple">Python</span>
-                <span class="skill-item accent">Docker</span>
-                <span class="skill-item secondary">GraphQL</span>
-            </div>
-        </section>
 
-        <section id="contact">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <h2 class="section-title">联系</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="card">
-                <p class="contact-text">欢迎交流，随时联系</p>
-                <div class="contact-links">
-                    <a href="#" class="contact-btn primary">
-                        <i class="fas fa-envelope"></i>
-                        发送邮件
-                    </a>
-                    <a href="#" class="contact-btn">
-                        <i class="fab fa-github"></i>
-                        GitHub
-                    </a>
-                    <a href="#" class="contact-btn">
-                        <i class="fab fa-twitter"></i>
-                        Twitter
-                    </a>
-                    <a href="#" class="contact-btn">
-                        <i class="fab fa-linkedin"></i>
-                        LinkedIn
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <footer>
-            <p>&copy; 2024 林晓晨. All rights reserved.</p>
+            <p>&copy; 2024 锋锋の小站. All rights reserved.</p>
         </footer>
         <button class="back-to-top" id="backToTop">
             <i class="fas fa-arrow-up"></i>
@@ -811,73 +909,233 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navBar = document.querySelector('.nav-bar');
-            const backToTop = document.getElementById('backToTop');
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
+            document.addEventListener('DOMContentLoaded', function() {
+                const navBar = document.querySelector('.nav-bar');
 
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navBar.classList.add('scrolled');
-                } else {
-                    navBar.classList.remove('scrolled');
-                }
+                const carouselImages = JSON.parse(localStorage.getItem('carouselImages')) || {
+                    image1: '1.jpg',
+                    image2: '2.jpg',
+                    image3: '3.jpg',
+                    image4: '4.jpg'
+                };
+                document.getElementById('carouselImg1').src = carouselImages.image1;
+                document.getElementById('carouselImg2').src = carouselImages.image2;
+                document.getElementById('carouselImg3').src = carouselImages.image3;
+                document.getElementById('carouselImg4').src = carouselImages.image4;
 
-                if (window.scrollY > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
+                const inspirationalQuotes = JSON.parse(localStorage.getItem('inspirationalQuotes')) || [
+                    '每一个不曾起舞的日子，都是对生命的辜负',
+                    '生活不是等待风暴过去，而是学会在雨中跳舞',
+                    '星光不问赶路人，时光不负有心人',
+                    '努力的意义，就是以后的日子里，放眼望去，全部都是自己喜欢的人和事'
+                ];
 
-            backToTop.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+                const aboutContent = JSON.parse(localStorage.getItem('aboutContent')) || {
+                    text1: '这里是锋锋的小站，一个记录生活、分享想法的个人空间。',
+                    text2: '喜欢动漫、游戏、编程和一切美好的事物。希望这里能给你带来一些温暖和快乐。'
+                };
+                document.getElementById('aboutText1').textContent = aboutContent.text1;
+                document.getElementById('aboutText2').textContent = aboutContent.text2;
+                const backToTop = document.getElementById('backToTop');
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        navBar.classList.add('scrolled');
+                    } else {
+                        navBar.classList.remove('scrolled');
+                    }
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                    if (window.scrollY > 300) {
+                        backToTop.classList.add('visible');
+                    } else {
+                        backToTop.classList.remove('visible');
                     }
                 });
-            }, observerOptions);
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection) {
-                        const offsetTop = targetSection.offsetTop - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
+
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href.startsWith('#')) {
+                            e.preventDefault();
+                            const targetId = href.substring(1);
+                            const targetSection = document.getElementById(targetId);
+                            if (targetSection) {
+                                const offsetTop = targetSection.offsetTop - 80;
+                                window.scrollTo({
+                                    top: offsetTop,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }
+                    });
+                });
+
+                const links = document.querySelectorAll('a[href="#"]');
+                links.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                    });
+                });
+
+                function updateTime() {
+                    const now = new Date();
+                    const timeStr = now.toLocaleTimeString('zh-CN', { hour12: false });
+                    const dateStr = now.toLocaleDateString('zh-CN', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric', 
+                        weekday: 'long' 
+                    });
+                    document.getElementById('currentTime').textContent = timeStr;
+                    document.getElementById('currentDate').textContent = dateStr;
+                }
+
+                updateTime();
+                setInterval(updateTime, 1000);
+
+                const carouselTrack = document.getElementById('carouselTrack');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const carouselDots = document.getElementById('carouselDots');
+                const slides = document.querySelectorAll('.carousel-slide');
+                let currentSlide = 0;
+                const totalSlides = slides.length;
+                let isAnimating = false;
+                let autoPlayInterval;
+
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    carouselDots.appendChild(dot);
+                });
+
+                function updateCarousel(animate = true) {
+                    if (animate) {
+                        carouselTrack.style.transition = 'transform 0.5s ease';
+                    } else {
+                        carouselTrack.style.transition = 'none';
                     }
-                });
-            });
+                    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentSlide);
+                    });
+                }
 
-            const links = document.querySelectorAll('a[href="#"]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                });
+                function goToSlide(index) {
+                    if (isAnimating) return;
+                    isAnimating = true;
+                    
+                    if (index < 0) {
+                        currentSlide = totalSlides - 1;
+                        updateCarousel(true);
+                    } else if (index >= totalSlides) {
+                        currentSlide = 0;
+                        updateCarousel(true);
+                    } else {
+                        currentSlide = index;
+                        updateCarousel(true);
+                    }
+                    
+                    setTimeout(() => {
+                        isAnimating = false;
+                    }, 500);
+                }
+
+                prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+                nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+                function startAutoPlay() {
+                    autoPlayInterval = setInterval(() => {
+                        goToSlide(currentSlide + 1);
+                    }, 5000);
+                }
+
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+
+                carouselTrack.addEventListener('mouseenter', stopAutoPlay);
+                carouselTrack.addEventListener('mouseleave', startAutoPlay);
+                
+                startAutoPlay();
+
+                const quoteText = document.getElementById('quoteText');
+                const quoteAuthor = document.getElementById('quoteAuthor');
+                const newQuoteBtn = document.getElementById('newQuoteBtn');
+
+                function getRandomQuote() {
+                    const randomIndex = Math.floor(Math.random() * inspirationalQuotes.length);
+                    return inspirationalQuotes[randomIndex];
+                }
+
+                function updateQuote() {
+                    const quote = getRandomQuote();
+                    quoteText.style.opacity = 0;
+                    quoteAuthor.style.opacity = 0;
+                    
+                    setTimeout(() => {
+                        quoteText.textContent = quote;
+                        quoteAuthor.textContent = '';
+                        quoteText.style.opacity = 1;
+                        quoteAuthor.style.opacity = 1;
+                    }, 300);
+                }
+
+                newQuoteBtn.addEventListener('click', updateQuote);
+
+                quoteText.style.transition = 'opacity 0.3s ease';
+                quoteAuthor.style.transition = 'opacity 0.3s ease';
+
+                function loadUpdates() {
+                    const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+                    const updatesList = document.querySelector('.updates-list');
+                    updatesList.innerHTML = '';
+
+                    posts.slice(0, 5).forEach(post => {
+                        const updateItem = document.createElement('article');
+                        updateItem.className = 'update-item';
+                        updateItem.innerHTML = `
+                            <div class="update-date">${post.date}</div>
+                            <div class="update-content">
+                                <h3 class="update-title">${post.title}</h3>
+                                <p class="update-desc">${post.content.substring(0, 50)}...</p>
+                            </div>
+                        `;
+                        updatesList.appendChild(updateItem);
+                    });
+                }
+
+                loadUpdates();
             });
-        });
-    </script>
+        </script>
 </body>
 </html>
