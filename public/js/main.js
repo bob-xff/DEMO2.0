@@ -701,6 +701,16 @@ function initPostsPage() {
 // settings.html 相关函数
 function initSettingsPage() {
     // 页面加载时：填充数据
+    // 填充网站信息
+    const siteInfo = JSON.parse(localStorage.getItem('siteInfo')) || {
+        siteName: '锋锋の小站',
+        siteTagline: '欢迎来到我的个人空间',
+        adminEmail: 'admin@example.com'
+    };
+    document.getElementById('siteName').value = siteInfo.siteName;
+    document.getElementById('siteTagline').value = siteInfo.siteTagline;
+    document.getElementById('adminEmail').value = siteInfo.adminEmail;
+
     // 填充轮播图
     const images = JSON.parse(localStorage.getItem('carouselImages')) || { image1: 'img/1.jpg', image2: 'img/2.jpg', image3: 'img/3.jpg', image4: 'img/4.jpg' };
     document.getElementById('image1').value = images.image1;
@@ -753,6 +763,21 @@ function initSettingsPage() {
     document.getElementById('emailContact').value = contact.email;
     document.getElementById('githubContact').value = contact.github;
     document.getElementById('twitterContact').value = contact.twitter;
+
+    // 保存网站信息
+    function saveSiteInfo(e) {
+        e.preventDefault();
+        const siteInfo = {
+            siteName: document.getElementById('siteName').value,
+            siteTagline: document.getElementById('siteTagline').value,
+            adminEmail: document.getElementById('adminEmail').value
+        };
+        localStorage.setItem('siteInfo', JSON.stringify(siteInfo));
+        alert('个人信息已保存！');
+        
+        // 更新页面标题
+        document.title = siteInfo.siteName + ' - 设置';
+    }
 
     // 保存轮播图
     function saveImages(e) {
@@ -821,6 +846,7 @@ function initSettingsPage() {
     }
 
     // 添加表单提交事件监听器
+    document.getElementById('profileForm').addEventListener('submit', saveSiteInfo);
     document.getElementById('imagesForm').addEventListener('submit', saveImages);
     document.getElementById('quotesForm').addEventListener('submit', saveQuotes);
     document.getElementById('aboutForm').addEventListener('submit', saveAbout);
@@ -869,6 +895,7 @@ function initSettingsPage() {
             localStorage.removeItem('interestsContent');
             localStorage.removeItem('contactContent');
             localStorage.removeItem('blogPosts');
+            localStorage.removeItem('siteInfo');
             alert('设置已重置！页面将刷新。');
             location.reload();
         }

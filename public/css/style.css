@@ -64,10 +64,7 @@ body::before {
     transition: all 0.3s ease;
 }
 
-.nav-bar.scrolled {
-    box-shadow: var(--shadow-light);
-}
-
+/* 导航栏调整 */
 .nav-content {
     max-width: 900px;
     margin: 0 auto;
@@ -75,6 +72,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* 允许换行 */
 }
 
 .nav-logo {
@@ -83,11 +81,16 @@ body::before {
     color: var(--primary-color);
     font-family: 'M PLUS Rounded 1c', 'Nunito', system-ui, sans-serif;
     text-decoration: none;
+    flex-shrink: 0; /* 防止logo被压缩 */
+    margin-right: 16px;
 }
 
 .nav-links {
     display: flex;
     gap: 32px;
+    flex-wrap: wrap; /* 允许链接换行 */
+    justify-content: flex-end; /* 右对齐链接 */
+    flex: 1; /* 占据剩余空间 */
 }
 
 .nav-link {
@@ -96,6 +99,11 @@ body::before {
     font-size: 14px;
     font-weight: 500;
     transition: color 0.2s ease;
+    white-space: nowrap; /* 防止文字换行 */
+}
+
+.nav-bar.scrolled {
+    box-shadow: var(--shadow-light);
 }
 
 .nav-link:hover {
@@ -1303,136 +1311,65 @@ textarea.form-input {
 }
 
 @media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column; /* 垂直排列 */
+        align-items: stretch; /* 拉伸子元素 */
+        padding: 8px 16px;
+    }
+
+    .nav-logo {
+        text-align: center; /* logo 居中 */
+        margin-bottom: 12px;
+        margin-right: 0;
+    }
+
     .nav-links {
-        display: none;
+        gap: 16px;
+        justify-content: center; /* 链接居中 */
     }
 
-    header {
-        padding-top: 80px;
-        padding-bottom: 32px;
+    .nav-link {
+        padding: 4px 8px; /* 减小内边距 */
     }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .back-to-top {
-        bottom: 24px;
-        right: 24px;
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    .container {
-        padding: 0 16px;
-    }
-
-    .name {
-        font-size: 36px;
-    }
-
-    .tagline {
-        font-size: 16px;
-    }
-
-    .card {
-        padding: 24px;
-    }
-
-    .section-title {
-        font-size: 20px;
-    }
-
-    .blog-header {
-        flex-direction: column;
-    }
-
-    .blog-date {
-        width: auto;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .post-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .post-actions {
-        width: 100%;
-        justify-content: flex-end;
-    }
-
-    .search-bar {
-        flex-direction: column;
-    }
-
-    .update-item {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .update-date {
-        width: auto;
-    }
-
-    .carousel-slide {
-        height: 250px;
-    }
-
-    .carousel-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    .prev-btn {
-        left: 8px;
-    }
-
-    .next-btn {
-        right: 8px;
-    }
-
-    .login-card {
-        padding: 32px 24px;
-    }
-
-    .login-icon {
-        width: 64px;
-        height: 64px;
-        font-size: 28px;
-    }
-
-    .login-title {
-        font-size: 24px;
-    }
-
-    /* 后台管理页面专用样式 - 精简版 */
     
-    /* 容器样式 */
-    body.admin-page .container {
-        max-width: 1200px !important;
-        padding: 80px 16px 24px !important;
+    /* 后台页面导航调整 */
+    body.admin-page .dashboard-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 16px;
     }
-
-    /* Section样式 - 确保后台页面可见 */
-    body.admin-page section {
-        opacity: 1 !important;
-        transform: none !important;
-        margin-bottom: 40px !important;
+    
+    body.admin-page .dashboard-logo {
+        text-align: center;
+        margin-bottom: 12px;
     }
-
-    /* 表单行样式 */
-    body.admin-page .form-row {
-        grid-template-columns: 1fr !important;
+    
+    body.admin-page .dashboard-links {
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+    
+    body.admin-page .logout-btn {
+        align-self: center;
+    }
+    
+    /* 针对主页的导航栏调整 */
+    body:not(.admin-page) .nav-content {
+        flex-direction: row; /* 主页仍保持水平布局 */
+        align-items: center;
+    }
+    
+    body:not(.admin-page) .nav-logo {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+    
+    body:not(.admin-page) .nav-links {
+        display: flex !important;
+        gap: 16px;
+        justify-content: flex-end;
+        flex: 1;
     }
 }
 
@@ -1839,12 +1776,14 @@ body.admin-page select.form-input {
 
 /* 1. 修复移动端导航链接显示问题 */
 @media (max-width: 768px) {
-    /* 保持前台页面导航隐藏 */
+    /* 保持前台页面导航显示 */
     body:not(.admin-page) .nav-links {
-        display: none !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
-    /* 但后台页面的导航链接必须显示 */
+    /* 但后台页面的导航链接也必须显示 */
     body.admin-page .nav-links,
     body.admin-page .dashboard-links {
         display: flex !important;
@@ -1854,6 +1793,11 @@ body.admin-page select.form-input {
     /* 后台页面容器在移动端也要正常显示 */
     body.admin-page .container {
         padding: 80px 16px 24px !important;
+    }
+    
+    /* 为主页添加适当的上边距，防止被导航栏遮挡 */
+    body:not(.admin-page) .container {
+        padding-top: 120px !important;
     }
 }
 
@@ -2031,4 +1975,63 @@ body.admin-page .form-row {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* 修复后台页面导航栏遮挡内容的问题 */
+body.admin-page {
+    padding-top: 80px; /* 为后台页面增加顶部内边距 */
+}
+
+/* 调整后台导航栏固定定位的位置 */
+.dashboard-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001; /* 提高z-index确保导航栏在最顶层 */
+}
+
+/* 确保后台页面容器有合适的上边距 */
+body.admin-page .container {
+    padding: 100px 24px 24px 24px !important; /* 增加顶部padding以避免内容被导航栏遮挡 */
+    margin-top: 0 !important; /* 确保没有额外的margin */
+}
+
+/* 针对移动设备优化 */
+@media (max-width: 768px) {
+    body.admin-page .container {
+        padding: 100px 16px 24px 16px !important; /* 移动端适配 */
+    }
     
+    body.admin-page {
+        padding-top: 100px; /* 移动端增加更多顶部空间 */
+    }
+}
+
+/* 为主页动态部分添加可见性确保 */
+body:not(.admin-page) .updates-list {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+body:not(.admin-page) .update-item {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-color: var(--card-bg) !important;
+    border-radius: var(--radius-large) !important;
+    padding: 24px !important;
+    box-shadow: var(--shadow-light) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: all 0.3s ease !important;
+    gap: 20px !important;
+}
+
+/* 确保主页的section正常显示 */
+body:not(.admin-page) section {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    display: block !important;
+}
