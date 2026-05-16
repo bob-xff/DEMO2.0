@@ -2,7 +2,7 @@
 function logout() {
     if (confirm('确定要退出登录吗？')) {
         // 清除登录状态
-        sessionStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('isLoggedIn');
         window.location.href = 'admin.html';
     }
 }
@@ -518,7 +518,7 @@ function checkLoginStatus() {
     
     if (protectedPages.includes(currentPath)) {
         // 检查是否已登录
-        const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (!isLoggedIn) {
             // 未登录，重定向到登录页面
             alert('请先登录！');
@@ -532,7 +532,7 @@ function checkLoginStatus() {
 // admin.html 相关函数
 function initAdminPage() {
     // 检查是否已经登录，如果已登录则直接跳转到仪表板
-    if (sessionStorage.getItem('isLoggedIn')) {
+    if (localStorage.getItem('isLoggedIn')) {
         window.location.href = 'dashboard.html';
         return;
     }
@@ -554,8 +554,11 @@ function initAdminPage() {
         .then(data => {
             if (data.success) {
                 // 登录成功，设置登录状态
-                sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = 'dashboard.html';
+                localStorage.setItem('isLoggedIn', 'true');
+                // 延迟跳转，确保localStorage已设置
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 100);
             } else {
                 alert('用户名或密码错误！');
             }
